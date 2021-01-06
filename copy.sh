@@ -1,7 +1,12 @@
 #!/bin/sh
 
-NAME="wp_screeps"
-OUTPUT_DIR="/home/traxys/.config/Screeps/scripts/127_0_0_1___21025/default"
+NAME="$(echo "{{project-name}}" | sed -e 's/\-/\_/')"
+OUTPUT_DIR=""
+
+if [ $OUTPUT_DIR -z ]; then
+	echo "You must specify the OUTPUT_DIR"
+	exit 1
+fi
 
 wasm-pack build --target nodejs
 
