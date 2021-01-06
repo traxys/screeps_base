@@ -3,7 +3,7 @@
 NAME="$(echo "{{project-name}}" | sed -e 's/\-/\_/')"
 OUTPUT_DIR=""
 
-if [ $OUTPUT_DIR -z ]; then
+if [ -z "$OUTPUT_DIR" ]; then
 	echo "You must specify the OUTPUT_DIR"
 	exit 1
 fi
